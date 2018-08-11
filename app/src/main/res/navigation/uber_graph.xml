@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="me.hiennguyen.uberux.LoginFragment"
+        tools:layout="@layout/activity_main">
+        <action
+            android:id="@+id/action_show_input_login_phone"
+            app:destination="@id/login_phone_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_phone_fragment"
+        android:name="me.hiennguyen.uberux.LoginPhoneActivity"
+        tools:layout="@layout/activity_login_with_phone" />
+
+
+</navigation>
