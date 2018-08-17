@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/login_fragment"
         android:name="me.hiennguyen.uberux.LoginFragment"
-        tools:layout="@layout/activity_main">
+        tools:layout="@layout/activity_login">
         <action
             android:id="@+id/action_show_input_login_phone"
             app:destination="@id/login_phone_fragment" />
@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/login_phone_fragment"
-        android:name="me.hiennguyen.uberux.LoginPhoneActivity"
+        android:name="me.hiennguyen.uberux.presentation.LoginPhoneActivity"
         tools:layout="@layout/activity_login_with_phone" />
 
 

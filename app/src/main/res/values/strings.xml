@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">UberUX-Kotlin</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDRdaAfhBPI_DTdMx05dU5zBuSjLpoJiC4</string>
     <string name="enter_no">Enter your mobile number</string>
     <string name="phone_hint">Enter your mobile number</string>
     <string name="get_moving">Get moving with Uber</string>

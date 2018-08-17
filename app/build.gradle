@@ -20,9 +20,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
-        enabled = true
-    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -44,10 +41,18 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     implementation 'com.github.jorgecastilloprz:fabprogresscircle:1.01@aar'
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
 
+    implementation "com.google.android.gms:play-services-maps:$rootProject.playService"
+    implementation "com.google.android.gms:play-services-location:$rootProject.playService"
+    implementation "com.google.android.gms:play-services-places:$rootProject.playService"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$rootProject.retrofit"
+    implementation 'com.squareup.moshi:moshi-kotlin:1.6.0'
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
 }
+apply plugin: 'com.google.gms.google-services'

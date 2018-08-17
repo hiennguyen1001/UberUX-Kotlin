@@ -1,22 +1,21 @@
-package me.hiennguyen.uberux
+package me.hiennguyen.uberux.presentation
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.transition.Slide
 import android.view.Gravity.END
 import android.view.animation.DecelerateInterpolator
-import me.hiennguyen.uberux.databinding.ActivityPasswordBinding
+import kotlinx.android.synthetic.main.activity_password.*
+import me.hiennguyen.uberux.R
+import me.hiennguyen.uberux.utils.hideKeyboard
 
 class PasswordActivity : AppCompatActivity() {
 
-    private lateinit var mBinding: ActivityPasswordBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_password)
+        setContentView(R.layout.activity_password)
         with(Slide(END)) {
             duration = 700
             addTarget(R.id.llphone)
@@ -31,21 +30,19 @@ class PasswordActivity : AppCompatActivity() {
             window.returnTransition = this
         }
 
-        mBinding.fabProgressCircle.setOnClickListener {
-            with(mBinding) {
-                etPass.isCursorVisible = false
-                rootFrame.alpha = 0.4f
-                fabProgressCircle.show()
-                etPass.hideKeyboard()
-            }
+        fabProgressCircle.setOnClickListener {
+            etPass.isCursorVisible = false
+            rootFrame.alpha = 0.4f
+            fabProgressCircle.show()
+            etPass.hideKeyboard()
             Handler().postDelayed({
-                val intent = Intent(this@PasswordActivity, PasswordActivity::class.java)
+                val intent = Intent(this@PasswordActivity, MapsActivity::class.java)
                 startActivity(intent)
                 finish()
             }, 1000)
         }
 
-        mBinding.ivback.setOnClickListener {
+        ivback.setOnClickListener {
             onBackPressed()
         }
     }

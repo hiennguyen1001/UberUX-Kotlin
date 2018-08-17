@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootFrame"
     android:layout_width="match_parent"
@@ -34,8 +35,8 @@
         android:layout_height="50dp"
         android:layout_gravity="top"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"
         android:background="#fff"
         android:elevation="4dp"
         android:orientation="horizontal"
