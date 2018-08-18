@@ -24,6 +24,7 @@ import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.LinearInterpolator
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.animation.addListener
@@ -166,8 +167,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
                     polyLineAnimator.start()
                 }
                 Activity.RESULT_CANCELED -> {
-                    polyLineAnimator.start()
                     // The user canceled the operation.
+                    polyLineAnimator.start()
                 }
             }
         }
@@ -209,8 +210,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
     private fun openPlaceAutoCompleteView() {
         polyLineAnimator.pause()
         try {
-            val intent =
-                PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN).build(this)
+            val intent = PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN).build(this)
             startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE)
         } catch (e: GooglePlayServicesRepairableException) {
             // TODO: Handle the error.
@@ -318,9 +318,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
 
                 if (position >= -1 && position < 0) {
 
-                    val uberEco = page.findViewById<View>(R.id.lluberEconomy)
-                    val uberEcoTv = page.findViewById<View>(R.id.tvuberEconomy)
-                    if (uberEcoTv != null && uberEcoTv is TextView && uberEco != null) {
+                    val uberEco = page.findViewById<View>(R.id.lluberEconomy) as? LinearLayout
+                    val uberEcoTv = page.findViewById<View>(R.id.tvuberEconomy) as? TextView
+                    if (uberEcoTv != null && uberEco != null) {
                         uberEcoTv.setTextColor(
                             argbEvaluator.evaluate(
                                 -2 * position,
@@ -333,9 +333,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, View.OnClickListen
                         uberEco.x = page.width * position
                     }
                 } else if (position in 0.0..1.0) {
-                    val uberPreTv = page.findViewById<View>(R.id.tvuberPre)
-                    val uberPre = page.findViewById<View>(R.id.llUberPre)
-                    if (uberPreTv != null && uberPreTv is TextView && uberPre != null) {
+                    val uberPreTv = page.findViewById<View>(R.id.tvuberPre) as? TextView
+                    val uberPre = page.findViewById<View>(R.id.llUberPre) as? LinearLayout
+                    if (uberPreTv != null && uberPre != null) {
                         uberPreTv.setTextColor(
                             ArgbEvaluator().evaluate(
                                 1 - position,
